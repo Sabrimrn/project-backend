@@ -17,6 +17,15 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->boolean('is_admin')->default(false);
+            // Gaming Profile Fields
+            $table->string('username')->nullable();
+            $table->date('birthday')->nullable();
+            $table->string('profile_photo')->nullable();
+            $table->text('about_me')->nullable();
+            $table->string('favorite_game')->nullable();
+            $table->string('gaming_platform')->nullable();
+
             $table->rememberToken();
             $table->timestamps();
         });
