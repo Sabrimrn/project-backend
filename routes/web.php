@@ -1,7 +1,15 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsController as PublicNewsController;
+use App\Http\Controllers\FaqController as PublicFaqController;
+use App\Http\Controllers\ContactController;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 use App\Http\Controllers\AdminController;
 
 Route::get('/', function () {
