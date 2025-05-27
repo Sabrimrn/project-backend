@@ -172,7 +172,7 @@
                             <div class="text-sm text-blue-700">Manage existing users</div>
                         </div>
                     </a>
-                    <a href="{{ route('admin.dashboard') }}" class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <a href="{{ route('admin.index') }}" class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
                         <div class="text-gray-500 mr-3">🏠</div>
                         <div>
                             <div class="text-sm font-medium text-gray-900">Admin Dashboard</div>

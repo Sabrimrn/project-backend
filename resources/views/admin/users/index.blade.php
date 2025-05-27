@@ -1,4 +1,4 @@
-extends('layouts.app')
+@extends('layouts.app')
 
 @section('title', 'Manage Users')
 
@@ -16,7 +16,7 @@ extends('layouts.app')
                         <p class="text-gray-600 mt-1">View and manage all registered users</p>
                     </div>
                     <div class="flex space-x-3">
-                        <a href="{{ route('admin.dashboard') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                        <a href="{{ route('admin.index') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
                             ← Back to Admin
                         </a>
                         <a href="{{ route('admin.users.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">

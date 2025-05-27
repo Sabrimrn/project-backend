@@ -56,7 +56,7 @@
                 @if(auth()->user()->is_admin ?? false)
                 <div class="mt-8 bg-red-50 border border-red-200 rounded-lg p-6">
                     <h3 class="font-semibold text-red-800 mb-3">🔧 Admin Panel</h3>
-                    <a href="{{ route('admin.dashboard') }}" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition-colors">
+                    <a href="{{ route('admin.index') }}" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition-colors">
                         Go to Admin Dashboard
                     </a>
                 </div>
