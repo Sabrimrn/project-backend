@@ -26,8 +26,6 @@ class User extends Authenticatable
         'birthday',
         'profile_photo',
         'about_me',
-        'favorite_game',
-        'gaming_platform',
     ];
 
     /**
@@ -51,8 +49,14 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
             'birthday' => 'date',
+            'is_admin' => 'boolean',
         ];
     }
+
+    public function getRouteKeyName()
+{
+    return 'id'; // or 'username' if you prefer username in URLs
+}
 
     // Relations
     public function news()
