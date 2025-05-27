@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
+    public function create()
+    {
+        return view('contact.create');
+    }
+
     public function show()
     {
         return view('contact.form');
@@ -24,8 +29,7 @@ class ContactController extends Controller
 
         ContactMessage::create($request->all());
 
-        // Hier kun je later email functionaliteit toevoegen
-        // Mail::to('admin@gamehub.com')->send(new ContactMessageMail($contactMessage));
+       
 
         return redirect()->route('contact')->with('success', 'Bedankt voor je bericht! We nemen binnenkort contact op.');
     }

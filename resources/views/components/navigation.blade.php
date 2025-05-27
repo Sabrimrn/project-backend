@@ -6,7 +6,7 @@
                 <div class="hidden md:flex space-x-6">
                     <a href="{{ route('news.index') }}" class="hover:text-gray-300 transition-colors">News</a>
                     <a href="{{ route('faq.index') }}" class="hover:text-gray-300 transition-colors">FAQ</a>
-                    <a href="{{ route('contact.create') }}" class="hover:text-gray-300 transition-colors">Contact</a>
+                    <a href="{{ route('contact') }}" class="hover:text-gray-300 transition-colors">Contact</a>
                 </div>
             </div>
             
