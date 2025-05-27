@@ -10,7 +10,7 @@
         @endif
         <div class="p-8">
             <h1 class="text-4xl font-bold text-gray-800 mb-4">{{ $news->title }}</h1>
-            <p class="text-gray-600 mb-6">Published on {{ $news->published_at->format('F j, Y') }}</p>
+            <p class="text-gray-600 mb-6">Published on {{ \Carbon\Carbon::parse($news->created_at)->format('d-m-Y') }}</p>
             <div class="prose max-w-none">
                 {!! nl2br(e($news->content)) !!}
             </div>

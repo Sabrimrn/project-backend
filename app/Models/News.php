@@ -52,4 +52,5 @@ class News extends Model
             ? asset('storage/news_images/' . $this->image)
             : asset('images/default-news.jpg');
     }
+
 }
