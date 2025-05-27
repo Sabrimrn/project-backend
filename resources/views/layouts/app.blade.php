@@ -9,7 +9,7 @@
 </head>
 <body class="font-sans antialiased bg-gray-50">
     <div class="min-h-screen">
-        <x-navigation />
+        @include('components.navigation')
         
         <main>
             @yield('content')
