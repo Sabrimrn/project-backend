@@ -14,7 +14,7 @@
     <div class="container">
         <div class="header">
             <h1>User Management</h1>
-            <a href="{{ route('admin.users.create') }}" class="btn green">Create New User</a>
+            <a href="{{ route('admin.create') }}" class="btn green">Create New User</a>
         </div>
 
         @if(session('success'))
