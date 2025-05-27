@@ -1,12 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GamerProfileController;
-use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\Admin\FaqController as AdminFaqController;
 use App\Http\Controllers\Admin\NewsController as AdminNewsController;
@@ -35,12 +36,15 @@ Route::middleware('auth')->group(function () {
 });
 
 //Contact Message
-Route::get('/contact', [ContactController::class, 'create'])->name('contact');
+Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 //Admin routes
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/', [AdminController::class, 'index'])->name('dashboard');
+    Route::get('/', [AdminController::class, 'index'])->name('index');
+
+    Route::get('/users', [UserController::class, 'index'])->name('users');
+    Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
     
 // News management
     Route::resource('news', AdminNewsController::class);

@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="nav">
-        <a href="{{ route('dashboard') }}">← Back to Dashboard</a>
+        <a href="{{ route('admin.index') }}">← Back to Dashboard</a>
         <a href="{{ route('profile.edit') }}">Profile</a>
         <form method="POST" action="{{ route('logout') }}" style="display: inline;">
             @csrf

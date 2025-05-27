@@ -1,19 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
-    public function dashboard()
+
+    public function index()
     {
         $users = User::all();
-
-        return view('admin.dashboard', compact('users'));
+        return view('admin.index', compact('users'));
     }
 
     public function users()
