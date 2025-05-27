@@ -18,7 +18,7 @@
                         {{ $item->title }}
                     </a>
                 </h2>
-                <p class="text-gray-600 text-sm mb-3">{{ \Carbon\Carbon::parse($news->created_at)->format('d-m-Y') }}</p>
+                <p class="text-gray-600 text-sm mb-3">{{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}</p>
                 <p class="text-gray-700">{{ Str::limit(strip_tags($item->content), 120) }}</p>
                 <a href="{{ route('news.show', $item->id) }}" class="inline-block mt-3 text-blue-600 hover:underline">
                     Read more →
