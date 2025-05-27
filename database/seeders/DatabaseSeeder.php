@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            UserProfileSeeder::class,
+            UserSeeder::class,
             NewsSeeder::class,
             FaqSeeder::class, 
         ]);

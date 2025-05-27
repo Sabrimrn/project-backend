@@ -17,13 +17,7 @@ return new class extends Migration
             $table->string('profile_photo')->nullable();
             $table->text('about_me')->nullable();
             $table->boolean('is_admin')->default(false);
-            $table->rememberToken();
-        });
-
-        Schema::create('password_reset_tokens', function (Blueprint $table) {
-            $table->string('email')->primary();
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
+            $table->timestamps(); 
         });
 
     }
@@ -34,7 +28,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['username', 'birthday', 'profile_photo', 'about_me', 'is_admin', 'password_reset_tokens']);
+            $table->dropColumn(['username', 'birthday', 'profile_photo', 'about_me', 'is_admin']);
         });
     
     }

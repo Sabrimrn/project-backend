@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->date('publication_date');
             $table->boolean('is_published')->default(true);
-            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Admin die het heeft geschreven
+            //$table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
     }
