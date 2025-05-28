@@ -13,7 +13,7 @@ class FaqController extends Controller
     public function categories()
     {
         $categories = FaqCategory::withCount('faqItems')->orderBy('sort_order')->get();
-        return view('admin.faq.categories', compact('categories'));
+        return view('admin.faq.index', compact('categories'));
     }
 
     public function createCategory()
@@ -37,8 +37,8 @@ class FaqController extends Controller
     // FAQ Items
     public function items()
     {
-        $items = FaqItem::with('category')->orderBy('faq_category_id')->orderBy('sort_order')->get();
-        return view('admin.faq.items', compact('items'));
+        $faqs = FaqItem::with('category')->orderBy('faq_category_id')->orderBy('sort_order')->get();
+        return view('admin.faq.edit', compact('faqs'));
     }
 
     public function createItem()
@@ -46,6 +46,13 @@ class FaqController extends Controller
         $categories = FaqCategory::orderBy('name')->get();
         return view('admin.faq.create-item', compact('categories'));
     }
+
+    public function editItem(FaqItem $faq)
+    {
+        $categories = FaqCategory::orderBy('name')->get();
+        return view('admin.faq.edit-item', compact('faq', 'categories'));
+    }
+
 
     public function storeItem(Request $request)
     {

@@ -23,7 +23,7 @@ class News extends Model
     protected function casts(): array
     {
         return [
-            'publication_date' => 'date',
+            'publication_date' => 'datetime',
             'is_published' => 'boolean',
         ];
     }

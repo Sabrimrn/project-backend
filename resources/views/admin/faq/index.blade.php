@@ -6,7 +6,7 @@
 <div class="container mx-auto px-4 py-8">
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-3xl font-bold">FAQ Management</h1>
-        <a href="{{ route('admin.faq.create') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add FAQ</a>
+        <a href="{{ route('admin.faq.categories') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add FAQ</a>
     </div>
     
     <div class="bg-white rounded-lg shadow overflow-hidden">
@@ -23,7 +23,7 @@
                 @forelse($faqs as $faq)
                 <tr class="border-t">
                     <td class="px-6 py-4">{{ Str::limit($faq->question, 50) }}</td>
-                    <td class="px-6 py-4">{{ ucfirst($faq->category) }}</td>
+                    <td class="px-6 py-4">{{ ucfirst($faq->category->name ?? 'Onbekend') }}</td>
                     <td class="px-6 py-4">
                         <span class="px-2 py-1 text-xs rounded {{ $faq->status === 'published' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800' }}">
                             {{ ucfirst($faq->status) }}

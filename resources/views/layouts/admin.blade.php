@@ -13,9 +13,9 @@
             <div class="container mx-auto flex justify-between items-center">
                 <h1 class="text-xl font-bold">Admin Panel</h1>
                 <div class="flex gap-4">
-                    <a href="{{ route('admin.dashboard') }}" class="hover:underline">Dashboard</a>
+                    <a href="{{ route('admin.index') }}" class="hover:underline">Dashboard</a>
                     <a href="{{ route('admin.news.index') }}" class="hover:underline">News</a>
-                    <a href="{{ route('admin.faq.index') }}" class="hover:underline">FAQ</a>
+                    <a href="{{ route('admin.faq.categories') }}" class="hover:underline">FAQ</a>
                     <a href="{{ route('admin.contact.index') }}" class="hover:underline">Contact</a>
                     <a href="{{ route('dashboard') }}" class="hover:underline">← Back to Site</a>
                 </div>

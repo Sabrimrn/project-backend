@@ -222,6 +222,8 @@
         <div>
             <a href="{{ route('admin.users.index') }}" class="btn">Manage Users</a>
             <a href="{{ route('admin.users.create') }}" class="btn green">Create New User</a>
+            <a href="{{ route('admin.news.index') }}" class="text-blue-600 underline">Beheer Nieuws</a>
+            <a href="{{ route('admin.faq.categories') }}" class="text-blue-600 underline">Beheer FAQ's</a>
         </div>
     </div>
 </body>

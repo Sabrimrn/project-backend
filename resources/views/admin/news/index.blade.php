@@ -33,7 +33,7 @@
                         <div class="text-sm font-medium text-gray-900">{{ $item->title }}</div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        {{ $item->published_at->format('M j, Y') }}
+                        {{ $item->publication_date->format('M j, Y') }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                         <a href="{{ route('admin.news.show', $item) }}" class="text-blue-600 hover:underline mr-3">View</a>

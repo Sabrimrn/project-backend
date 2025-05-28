@@ -29,7 +29,12 @@ class ContactController extends Controller
 
         ContactMessage::create($request->all());
 
-       
+        // Mail versturen
+        Mail::raw("Nieuw bericht van {$validated['name']} ({$validated['email']}):\n\n{$validated['message']}", function ($message) {
+            $message->to('admin@ehb.be') // Verander dit naar echte admin e-mail
+                    ->subject('Nieuw contactformulier bericht');
+        
+        });
 
         return redirect()->route('contact')->with('success', 'Bedankt voor je bericht! We nemen binnenkort contact op.');
     }

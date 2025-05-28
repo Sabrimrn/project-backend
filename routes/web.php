@@ -4,13 +4,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\NewsController;
-use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GamerProfileController;
-use App\Http\Controllers\Admin\ContactController as AdminContactController;
-use App\Http\Controllers\Admin\FaqController as AdminFaqController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\Admin\NewsController as AdminNewsController;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\Admin\FaqController as AdminFaqController;
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -48,16 +49,24 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
     
-// News management
-    Route::resource('news', AdminNewsController::class);
-    
-// FAQ management
-    Route::resource('faq', AdminFaqController::class);
-    
-// Contact messages
-    Route::get('contact', [AdminContactController::class, 'index'])->name('contact.index');
-    Route::get('contact/{id}', [AdminContactController::class, 'show'])->name('contact.show');
-    Route::delete('contact/{id}', [AdminContactController::class, 'destroy'])->name('contact.destroy');
+    // News management
+    Route::resource('news', AdminNewsController::class)->names('news');
+    Route::get('/news/create', [AdminNewsController::class, 'create'])->name('news.create');
+
+    // FAQ categorieën
+    Route::get('/faq/categories', [AdminFaqController::class, 'categories'])->name('faq.categories');
+    Route::get('/faq/categories/create', [AdminFaqController::class, 'createCategory'])->name('faq.categories.create');
+    Route::post('/faq/categories', [AdminFaqController::class, 'storeCategory'])->name('faq.categories.store');
+
+    // FAQ items
+    Route::get('/faq/edit', [AdminFaqController::class, 'items'])->name('faq.edit');
+    Route::get('/faq/create', [AdminFaqController::class, 'createItem'])->name('faq.create');
+    Route::post('/faq/items', [AdminFaqController::class, 'storeItem'])->name('faq.items.store');
+        
+    // Contact messages
+        Route::get('contact', [AdminContactController::class, 'index'])->name('contact.index');
+        Route::get('contact/{id}', [AdminContactController::class, 'show'])->name('contact.show');
+        Route::delete('contact/{id}', [AdminContactController::class, 'destroy'])->name('contact.destroy');
 });
 
 require __DIR__.'/auth.php';
