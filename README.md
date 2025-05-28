@@ -1,61 +1,106 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+README.md - Gaminghub Project
+Projectbeschrijving
+Dit project is een Gaminghub webapplicatie gebouwd met Laravel 12. Het platform is bedoeld om gamers, fans en content creators samen te brengen. Via deze hub kunnen gebruikers gamen gerelateerde content ontdekken, zoals nieuws, FAQ’s, profielen van gamers en community-updates. Admins beheren nieuwsartikelen, FAQ-categorieën en -items, en gebruikersprofielen.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Functionaliteiten
+Nieuwsplatform: Admins kunnen gaming-gerelateerd nieuws plaatsen, beheren en publiceren.
 
-## About Laravel
+FAQ sectie: Veelgestelde vragen over het platform, games, events en meer, georganiseerd in categorieën.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Gamerprofielen: Gebruikers kunnen profielen aanmaken en beheren.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Contactformulier: Voor vragen en supportaanvragen door gebruikers.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Admin dashboard: Beheer van gebruikers, nieuws, FAQ en contactberichten.
 
-## Learning Laravel
+Authenticatie: Gebruikersregistratie en inloggen met verschillende rollen (admin, gebruiker).
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Responsive design: Geschikt voor desktop en mobiel.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Implementatie technische vereisten:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+| Vereiste                       | Implementatie (Bestand & lijnnummer)                                                         |
+| ------------------------------ | -------------------------------------------------------------------------------------------- |
+| Laravel 12 Framework           | `composer.json` en `vendor/laravel/framework`                                                |
+| Admin Controller & Middleware  | `app/Http/Controllers/Admin/AdminController.php` (lijn 10)                                   |
+| Nieuwsbeheer routes            | `routes/web.php`, regels 51-55                                                               |
+| FAQ Controller met relatie     | `app/Http/Controllers/Admin/FaqController.php`, lijnen 10-70                                 |
+| Blade views Admin FAQ          | `resources/views/admin/faq/index.blade.php`, hele bestand                                    |                                  
+| Route Middleware admin         | `routes/web.php` middlewaregroep admin (regel 44)                                            |
+| Cache en Config clear command  | `php artisan view:clear`, `php artisan cache:clear` (README.md installatie)                  |
+| Validatie FAQ item toevoegen   | `FaqController@storeItem`, validatie in lijnen 70-85                                         |
+| Gamerprofielen & profielbeheer | `app/Http/Controllers/GamerProfileController.php`, views in `resources/views/gamer-profile/` |
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Premium Partners
+Installatiehandleiding:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Clone de repository:
+git clone https://github.com/jouwgebruikersnaam/jouwproject.git
+cd jouwproject
 
-## Contributing
+Installeer PHP dependencies:
+composer install
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Installeer npm dependencies & compileer assets:
+npm install
+npm run dev
 
-## Code of Conduct
+Maak een .env bestand aan:
+Kopieer .env.example naar .env en configureer je databasegegevens:
+cp .env.example .env
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Pas .env aan, bijvoorbeeld:
+DB_CONNECTION=sqlite
+DB_HOST=127.0.0.1
+DB_DATABASE=project-backend
 
-## Security Vulnerabilities
+Genereer app key:
+php artisan key:generate
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Voer migraties en seeders uit:
+php artisan migrate --seed
 
-## License
+Cache legen (voor zekerheid):
+php artisan view:clear
+php artisan cache:clear
+php artisan route:clear
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Start de ontwikkelserver:
+php artisan serve
+
+Screenshots applicatie:
+
+![Screenshot 2025-05-28 043306](https://github.com/user-attachments/assets/664bfea6-9b03-4783-89c2-a583dc52bf46)
+![Screenshot 2025-05-28 043249](https://github.com/user-attachments/assets/10890db9-a84e-45c0-a65d-9b0ea63961f5)
+![Screenshot 2025-05-28 043238](https://github.com/user-attachments/assets/58f703f1-5522-4501-bd7e-d9fc0cead2b0)
+![Screenshot 2025-05-28 043222](https://github.com/user-attachments/assets/1cfdee5d-ea1b-4cfc-b873-a6db3431a9d9)
+![Screenshot 2025-05-28 043155](https://github.com/user-attachments/assets/5cb903ef-2e52-4eaf-98cd-fb1fca4d2322)
+![Screenshot 2025-05-28 043136](https://github.com/user-attachments/assets/071a0bce-b21e-4a5c-9905-a1606001ac30)
+![Screenshot 2025-05-28 043110](https://github.com/user-attachments/assets/4b507ce6-83f9-42cc-a0f7-8c772a7294c7)
+![Screenshot 2025-05-28 043020](https://github.com/user-attachments/assets/a855611a-adbd-4f7e-a342-82459f3e1b60)
+
+
+Gebruikte bronnen
+Laravel documentatie: https://laravel.com/docs/12.x
+
+Laracasts tutorials: https://laracasts.com
+
+AI chatlog via OpenAI ChatGPT (GPT-4 model)
+
+Diverse StackOverflow posts over Laravel best practices
+
+
+AI Chatlog
+Tijdens het ontwikkelen heb ik gebruikgemaakt van OpenAI’s ChatGPT voor ondersteuning bij:
+
+Het debuggen van foutmeldingen
+
+Correcte implementatie van Eloquent relaties en Blade syntax
+
+Het structureren van routes en controllers
+
+Het oplossen van problemen met knoppen die niet reageren
+
+Html
+
